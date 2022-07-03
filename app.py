@@ -10,9 +10,7 @@ import streamlit as st
 import numpy as np
 from possession_functions import *
 
-username = st.secrets['user']
-password = st.secrets['password']
-creds = {'user': user, 'passwd': password}
+creds = {'user': st.secrets['user'], 'passwd': st.secrets['password']}
 matches = sb.matches(49, 106, creds=creds)
 dash_matches = matches[(matches['home_team'] == 'Houston Dash') | (matches['away_team'] == 'Houston Dash')]
 dash_matches = dash_matches.sort_values(by = 'match_date', ascending = False).reset_index(drop = True)
